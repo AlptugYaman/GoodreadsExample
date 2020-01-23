@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Books</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Books</h1>
+		<form method="get" action="searchBook">
+			<input type="text" name="keyword" placeholder="Search Book" />
+			&nbsp; <input type="submit" value="ARA" />
+		</form></br> </br>
+
+		<form method="get" action="searchWhoRead">
+			<input type="text" name="keyword" placeholder="Search Who Read" />
+			&nbsp; <input type="submit" value="ARA" />
+		</form></br> </br>
+		
+		<a href="newBook">Create A New Book</a> </br> </br>
+		<table border="1" cellpadding="10">
+			<thread>
+			<tr>
+				<th>NAME</th>
+				<th>AUTHOR</th>
+				<th>TRANSLATOR</th>
+				<th>PUBLISHER</th>
+				<th>PUBLISHED</th>
+			</tr>
+			</thread>
+			<tbody>
+				<tr th:each="books: ${listBooks}">
+					<td th:text="${books.name}">Name</td>
+					<td th:text="${books.author}">Author</td>
+					<td th:text="${books.translator}">Translator</td>
+					<td th:text="${books.publisher}">Publisher</td>
+					<td th:text="${books.published}">Published</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

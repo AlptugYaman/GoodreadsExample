@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Users</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Search Who Read</h1> </br> </br>
+		<table border="1" cellpadding="10">
+			<thread>
+			<tr>
+				<th>NAME</th>
+				<th>SURNAME</th>
+			</tr>
+			</thread>
+			<tbody>
+				<tr th:each="users: ${result}">
+					<td th:text="${users.user_name}">Name</td>
+					<td th:text="${users.surname}">Name</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

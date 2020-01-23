@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Book</title>
+</head>
+<body>
+	<div align="center">
+		<h1>Add a Readed Book</h1>
+		</br> </br>
+		
+		<form action="#" th:action="@{/saveReadedBook}" th:object="${readedBook}"
+			method="post">
+		<table border="1" cellpadding="10">
+			<tr>
+				<th>User Name</th>
+				<th>Book Name</th>
+				<th>Read Year</th>
+				<th>Rate</th>
+				<th>Comment</th>
+			</tr>
+			<tr>
+				<td><select th:field="*{user_id}">
+						<option th:each="users: ${listUsers}" th:value="${users.id}"
+							th:text="${users.name} +' ' + ${users.surname}" ></option>
+				</select></td>
+				<td><select th:field="*{book_id}">
+						<option th:each="books: ${listBooks}" th:value="${books.id}"
+							th:text="${books.name}"></option>
+				</select></td>
+				<td><input type="text"  th:field="*{readed_year}" /></td>
+				<td><select th:field="*{rate}">
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+				</select></td>
+				<td><input type="text"  th:field="*{comment}" /></td>
+			</tr>
+		</table>
+		</br>
+		<td colspan="2"><button type="submit">KAYDET</button></td>
+		</form>
+	</div>
+</body>
+</html>
